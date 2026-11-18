@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic Tac Toe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <!-- ========== SETUP SCREEN ========== -->
+    <section id="setup" class="screen">
+      <h1 class="title"><span class="t1">Tic</span> <span class="t2">Tac</span> <span class="t3">Toe</span></h1>
+
+      <form id="setup-form" autocomplete="off">
+        <div class="field">
+          <span class="field-label">Choose a mode</span>
+          <div class="seg" role="radiogroup" aria-label="Game mode">
+            <button type="button" class="seg-btn" data-mode="pvp" role="radio">👥 2 Players</button>
+            <button type="button" class="seg-btn" data-mode="cpu" role="radio">🤖 vs Computer</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Who's playing?</span>
+          <label class="input x">
+            <b aria-hidden="true">✕</b>
+            <input id="name-x" type="text" maxlength="12" placeholder="Player X" aria-label="Player X name">
+          </label>
+          <label class="input o">
+            <b aria-hidden="true">◯</b>
+            <input id="name-o" type="text" maxlength="12" placeholder="Player O" aria-label="Player O name">
+          </label>
+        </div>
+
+        <div class="field" id="difficulty-field">
+          <span class="field-label">Difficulty</span>
+          <div class="seg" role="radiogroup" aria-label="Difficulty">
+            <button type="button" class="seg-btn" data-level="easy" role="radio">Easy</button>
+            <button type="button" class="seg-btn" data-level="medium" role="radio">Medium</button>
+            <button type="button" class="seg-btn" data-level="hard" role="radio">Hard</button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn primary start-btn">Let's Play! 🎮</button>
+      </form>
+    </section>
+
+    <!-- ========== GAME SCREEN ========== -->
+    <section id="game" class="screen" hidden>
+      <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
+      <button type="button" id="sound-toggle" class="sound-btn" aria-label="Mute sound">🔊</button>
+      <div id="mode-badge" class="badge" hidden></div>
+
+      <h1 class="title"><span class="t1">Tic</span> <span class="t2">Tac</span> <span class="t3">Toe</span></h1>
+
+      <div class="scores">
+        <div class="score x" id="card-x">
+          <div class="n" id="label-x">Player ✕</div>
+          <div class="p" id="pts-x">0</div>
+        </div>
+        <div class="score d" id="card-d">
+          <div class="n">Draws</div>
+          <div class="p" id="pts-d">0</div>
+        </div>
+        <div class="score o" id="card-o">
+          <div class="n" id="label-o">Player ◯</div>
+          <div class="p" id="pts-o">0</div>
+        </div>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+
+      <div id="board" class="board" role="grid" aria-label="Tic Tac Toe board"></div>
+
+      <div class="actions">
+        <button type="button" id="new-round" class="btn">New Round</button>
+        <button type="button" id="reset-scores" class="btn">Reset Scores</button>
+        <button type="button" id="menu" class="btn">Menu</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
